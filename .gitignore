@@ -37,3 +37,6 @@ captures/
 
 # macOS
 .DS_Store
+
+# Other
+*.zip
