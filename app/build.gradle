@@ -44,6 +44,7 @@ task archive(type: Zip) {
     destinationDirectory = projectDirFile
     include '**'
     exclude '*.zip'
+    exclude '**/*.lock'
     exclude 'app/build'
     archiveFileName = {
         def stdout = new ByteArrayOutputStream()
@@ -51,6 +52,6 @@ task archive(type: Zip) {
             commandLine 'git', 'describe', '--match=', '--always', '--dirty', '--abbrev=7'
             standardOutput = stdout
         }
-        stdout.toString().trim()
+        "assignment_"+stdout.toString().trim()
     }() + ".zip"
 }
